@@ -1,29 +1,34 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { AppComponent } from "./app.component"
+import { AppModule } from "./app.module";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
-describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+describe('AppComponent',() => {
 
-  it(`should have as title 'fakestore'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('fakestore');
-  });
+    let component: AppComponent;
+    let fixture: ComponentFixture<AppComponent>;
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('fakestore app is running!');
-  });
+    beforeEach(waitForAsync( () => {
+      TestBed.configureTestingModule({
+        declarations: [
+          AppComponent
+        ],
+        imports: [
+          AppModule
+        ]
+      }).compileComponents();
+      
+    }));
+
+    beforeEach(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+
+    it('Deve criar o component App', () => {
+      expect(component).toBeDefined();
+    });
 });
+

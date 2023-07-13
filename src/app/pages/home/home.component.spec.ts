@@ -23,6 +23,6 @@ describe('HomeComponent', () => {
   
 
   it('Deve criar o componente HomeComponent', () => {
-    expect(component).toBeTruthy;
+    expect(component).toBeTruthy();
   })
 });
