@@ -1,1 +1,9 @@
-<app-product *ngFor="let allProducts of allProducts" [products]="allProducts"></app-product>
+<app-header></app-header>
+<div class="container grid">
+    <div class="row">
+        <app-product *ngFor="let allProducts of allProducts" [products]="allProducts" class="col-xs-1"></app-product>
+    </div>
+    
+</div>
+
+<app-footer></app-footer>

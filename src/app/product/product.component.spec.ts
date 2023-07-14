@@ -26,8 +26,17 @@ describe('ProductComponent', () => {
   });
 
   it('Título do produto', () => {
-      const h1 = el.query(By.css('h1'));
-      expect(h1).toBeTruthy();
-      
+      const titulo = el.query(By.css('.card-title'));
+      expect(titulo).toBeTruthy();  
+  });
+
+  xit('Mostrar a lista de produtos', () => {
+
+    
+    fixture.detectChanges();
+    
+    const cards = el.queryAll(By.css('.card'));
+    expect(cards).toBeTruthy();
+    expect(cards.length).toBe(20);
   })
 });
